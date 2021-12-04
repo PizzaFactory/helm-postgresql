@@ -128,6 +128,9 @@ spec:
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}
       {{- end }}
+      tolerations:
+{{ toYaml .Values.tolerations | indent 8 }}
+      {{- end }}
       volumes:
       {{- if or (.Files.Glob "configs/pg_hba.conf") .Values.postgresql.pghba .Values.postgresql.configMap}}
       - name: postgresql-config-pghba
